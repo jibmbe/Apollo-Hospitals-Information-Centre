@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Community Posts</title>
+    <style>
+        /* Reset default browser styles */
+        body, h1, h2, p {
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f2f2f2;
+            color: #333;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        h1 {
+            text-align: center;
+            margin-bottom: 20px;
+            color: #0066cc; /* Apollo blue color */
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+            font-size: 36px;
+            font-weight: bold;
+        }
+
+        .logo {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .logo img {
+            width: 200px; /* Adjust the width of the logo as needed */
+        }
+
+        .post {
+            background-color: #fff;
+            padding: 20px;
+            margin-bottom: 30px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .post:hover {
+            transform: translateY(-5px);
+        }
+
+        .post h2 {
+            color: #333;
+            font-size: 32px;
+            margin-bottom: 10px;
+        }
+
+        .post p {
+            color: #555;
+            font-size: 18px;
+            line-height: 1.6;
+            margin-bottom: 10px;
+        }
+
+        .post .author {
+            font-style: italic;
+            color: #888;
+            font-size: 16px;
+            margin-top: auto;
+        }
+
+        .post .created-date {
+            color: #888;
+            font-size: 14px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="logo">
+            <img src="https://www.apolloinformationcentre.com/wp-content/uploads/2019/08/apollo-logo.png" alt="Apollo Logo"> 
+        </div>
+        <h1>Community Posts</h1>
+        {% for post in posts %}
+        <div class="post">
+            <h2>{{ post.title }}</h2>
+            <p>{{ post.content }}</p>
+            <p class="author">Author: {{ post.author }}</p>
+            <p class="created-date">Created Date: {{ post.created_date }}</p>
+        </div>
+        {% empty %}
+        <p>No posts available.</p>
+        {% endfor %}
+    </div>
+</body>
+</html>

@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Patient List</title>
+    <style>
+        /* Reset default browser styles */
+        body, h1, ul, li {
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f2f2f2;
+            color: #333;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        h1 {
+            text-align: center;
+            margin-bottom: 20px;
+            color: #0066cc; /* Apollo blue color */
+        }
+
+        .logo {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .logo img {
+            width: 200px; /* Adjust the width of the logo as needed */
+        }
+
+        ul {
+            list-style-type: none;
+        }
+
+        li {
+            background-color: #fff;
+            padding: 10px;
+            margin-bottom: 10px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        li:hover {
+            background-color: #f2f2f2;
+        }
+
+        li span {
+            font-weight: bold;
+        }
+
+        /* Alternate background color for even li elements */
+        li:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="logo">
+            <img src="https://www.apolloinformationcentre.com/wp-content/uploads/2019/08/apollo-logo.png" alt="Apollo Logo"> 
+        </div>
+        <h1>Patient List</h1>
+        <ul>
+            {% for patient in patients %}
+            <li><span>{{ patient.name }}</span> - Age: {{ patient.age }}</li>
+            {% empty %}
+            <li>No patients available.</li>
+            {% endfor %}
+        </ul>
+    </div>
+</body>
+</html>
